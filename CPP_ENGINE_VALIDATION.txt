@@ -1,0 +1,90 @@
+C++ ENGINE VALIDATION — 2026-10-05, original development measurements
+
+Implementation
+  Default: ./run_meganan.sh --engine cpp (engine flag can be omitted).
+  C++17: V4L2 latest-frame capture; MJPEG/YUYV RGB decoding; direct MediaPipe
+  body/face C API; direct LiteRT MoveNet C API and identical letterbox resize;
+  confidence gates, smoothing, arm/lean events, angles, body speed, facial
+  anchors, face velocity, and mesh validation.
+  Retained Python: Tk GUI, HTTP/JSON/SSE contract, runtime configuration,
+  pacing/orchestration, aggregate telemetry, and reference implementation.
+  Same model binaries, 17 body joints, 478 facial points, 157 face edges,
+  schema 1.1, face-only operation, FPS slider 1..30, no raw image endpoint.
+
+Verification
+  Detailed logs/reports referenced below are local generated outputs and
+  are excluded from this source distribution.
+  Original baseline: 57 tests passed before migration.
+  Final whole-project suite: 124 tests passed, 0 failures (35.042 seconds).
+  Includes real Tk child suites; synthetic inputs and public face/body images;
+  body/face/absence/stale/error states; API JSON/SSE; live FPS controls;
+  explicit close and partial-construction failure; native-only process exit.
+  Command:
+    MOTION_TEST_IMAGE_DIR=/tmp/meganan-public-fixtures \
+      .venv/bin/python -m unittest discover -p 'test_motion_*.py' -v
+  Log: artifacts/cpp_full_tests.log
+
+  Independent C++ undefined-behavior + float-cast-overflow instrumentation:
+  63 native tests passed, 0 failures / 0 skips. Source hashes matched all five
+  project C++ translation units at that validation run (before branding edits). Prebuilt upstream model runtimes and
+  JPEG libraries were not instrumented.
+  Report: runs/native_ubsan_report.json
+
+  Same-input real webcam comparison: 60 frames; native/Python body landmark
+  maximum error 0.0, face landmark maximum error 0.0; states/events matched.
+  Both engines detected a face in 57 of 60 frames; both withheld it in the others.
+  Body tracking in that close-up live sample was absent. Positive body
+  detection was separately verified with public MediaPipe human-pose images.
+  Native MoveNet matches original/mirrored/translated public body images with
+  maximum coordinate/confidence difference 0.0 and 13–16 reliable body points.
+  Reports: artifacts/cpp_engine_verification.json
+           artifacts/native_movenet_positive_parity.json
+
+  Real native camera + visible Tk + JSON + SSE: 24-second run passed with
+  146 GUI updates, 146 SSE events, and 143 tracked-face updates.
+  Slider changed 6→12→1→6; pacing and publication responded. Actual throughput
+  can be below the limit; completion-based rolling FPS can briefly exceed a
+  new limit while older work finishes. No image canvas items were created.
+  Window/worker/SSE stopped normally and the real camera reopened afterward.
+  Report: artifacts/cpp_desktop_verification.json
+
+  Real CLI variants all exited 0, produced frames, and finalized without errors:
+  - C++ MoveNet with face mesh
+  - C++ MoveNet without face mesh
+  - C++ MediaPipe without face mesh
+  - original Python reference with face mesh
+  Report: artifacts/cpp_cli_verification.json
+
+  Native extension installation uses atomic replacement. Verified an already
+  imported old extension remains usable across a rebuild; new launches use
+  the newly built file. Model libraries retain their code/static storage until
+  process exit, while each model/camera resource is closed normally.
+
+Measured performance
+  Body + 478-point face motion calculations: Python 966.85us/update,
+  C++ 308.30us/update — 3.14× faster over 240 equal-output frames.
+  Same-camera-frame model adapter inference median: Python
+  68.486ms, C++ 62.900ms (55 samples after 5 warmup frames).
+  These are measurements on this computer, not a promise of 3× whole-app FPS
+  or an accuracy evaluation. The neural inference runtime was already native;
+  the migration reduces capture/wrapper/object-conversion/movement overhead.
+
+Camera memory handling
+  Camera frames are not recorded by application code or exposed by GUI/API.
+  Camera startup now disables Linux process dumps as well as RLIMIT_CORE;
+  the native camera protection is covered by a subprocess regression test.
+
+
+Reproduce
+  ./build_native.sh
+  .venv/bin/python tools/fetch_test_fixtures.py
+  MOTION_TEST_IMAGE_DIR=/tmp/meganan-public-fixtures \
+    .venv/bin/python -m unittest discover -p 'test_motion_*.py'
+  .venv/bin/python verify_cpp_engine.py --live --frames 60
+  (For --live, close meganan so the camera is available.)
+  verify_native_desktop.py needs the same Tcl/Tk environment as the launcher.
+
+Licenses
+  THIRD_PARTY_NOTICES.txt includes retained MediaPipe/LiteRT header notices,
+  OpenCV resize adaptation copyright, pybind11, and libjpeg-turbo attribution.
+  Verified 66 license/header file SHA-256 values against retained manifests.

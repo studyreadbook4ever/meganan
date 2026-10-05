@@ -1,0 +1,7 @@
+# Python >=3.11; tested on CPython 3.14/Linux x86_64.
+# Native ABI versions are checked at startup. Use exactly one cv2 distribution:
+# MediaPipe requires opencv-contrib-python, so do not also install a headless wheel.
+mediapipe==1.0.1
+ai-edge-litert==2.2.0
+numpy==2.4.6
+opencv-contrib-python==5.0.0.93

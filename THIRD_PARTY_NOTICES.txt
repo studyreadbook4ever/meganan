@@ -1,0 +1,216 @@
+meganan — THIRD-PARTY NOTICES
+Recorded: 2026-10-05
+
+This inventory identifies third-party material included in this source tree
+and the principal runtime dependencies used on the development computer.
+The root LICENSE (The Unlicense) applies only to independently authored meganan
+code. Third-party material, including model weights, vendor headers, adapted
+connection data in motion_topology.py, and the OpenCV adaptation in
+native/resize.hpp, retains its original license and is excluded from that
+public-domain dedication. Each component's retained terms apply as described
+below. This repository as a collection is not entirely public-domain material.
+
+Keep this file, licenses/, and the adjacent upstream LICENSE files with the
+corresponding source/model assets when redistributing them. Full license text
+and original notices, rather than a license name alone, are retained below.
+Downloaded documentation PDFs are local research snapshots; their public
+source URLs and the precise licensing evidence are recorded in the model
+inventory. They are not part of the default Git source distribution.
+
+1. MEDIAPIPE FACIAL CONNECTION DATA — INCLUDED AND ADAPTED
+
+Local file: motion_topology.py (FACE_CONTOURS)
+Upstream: MediaPipe 1.0.1, FaceLandmarksConnections in
+  mediapipe/tasks/python/vision/face_landmarker.py
+  https://github.com/google-ai-edge/mediapipe/blob/master/mediapipe/tasks/python/vision/face_landmarker.py
+Original copyright: Copyright 2023 The MediaPipe Authors.
+License: Apache License, Version 2.0 (Apache-2.0).
+
+meganan modifications: the contours, left/right iris connections, and nose
+connections were extracted as 157 static tuple entries and combined with this
+project's COCO-17 names and body connections. No inference SDK is initialized
+by importing that data. The source file now retains the original copyright,
+Apache license header, and this modification notice.
+
+The installed upstream source used for this extraction has SHA-256:
+  227286efcd2dfa0920466c46ec582f6dbaee5dd8e8630c66babdf0d9f06bcb10
+Retained texts:
+  licenses/mediapipe/LICENSE
+  licenses/mediapipe/NOTICE
+
+The complete upstream wheel NOTICE is preserved unchanged. It also describes
+components of the upstream wheel, which is not itself included in the default
+Git source distribution; those notices do not relicense this whole project.
+
+2. OPENCV ZOO DEMONSTRATION CODE AND ONNX MODELS — INCLUDED, UNMODIFIED
+
+Upstream project: OpenCV Zoo and its contributors
+  https://github.com/opencv/opencv_zoo
+Pinned commit: 47534e27c9851bb1128ccc0102f1145e27f23f98
+License: Apache License, Version 2.0 (Apache-2.0).
+
+Included files:
+  pose_probe_assets/person_detection_mediapipe/mp_persondet.py
+  pose_probe_assets/person_detection_mediapipe/person_detection_mediapipe_2023mar.onnx
+  pose_probe_assets/pose_estimation_mediapipe/mp_pose.py
+  pose_probe_assets/pose_estimation_mediapipe/pose_estimation_mediapipe_2023mar.onnx
+
+These upstream files are byte-for-byte unmodified. The local probe's output
+ordering compatibility adjustments are implemented separately in pose_probe.py.
+The corresponding upstream README files expressly license all files in these
+two model directories under Apache 2.0 and preserve conversion/tool credits.
+
+Retained original licenses:
+  pose_probe_assets/person_detection_mediapipe/LICENSE
+  pose_probe_assets/pose_estimation_mediapipe/LICENSE
+Retained source descriptions:
+  licenses/opencv-zoo/person_detection_README.txt
+  licenses/opencv-zoo/pose_estimation_README.txt
+Exact download URLs and SHA-256 values: pose_probe_assets/sources.json
+
+3. GOOGLE / MEDIAPIPE TRAINED MODEL ASSETS — INCLUDED, UNMODIFIED
+
+License: Apache License, Version 2.0 (Apache-2.0), supported by the model-specific
+official cards and exact model-variant documentation identified below. This
+attribution is based on those model sources, not inferred from the SDK license.
+License text: licenses/Apache-2.0.txt
+Detailed component inventory, source links, hashes, and evidence boundaries:
+  licenses/model_license_evidence.json
+
+a. MediaPipe Face Landmarker, float16/1
+   File: pose_probe_assets/face_landmarker.task
+   Publisher: Google / The MediaPipe Authors
+   Source:
+   https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
+   Documentation:
+   https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker
+   The unchanged task contains the BlazeFace short-range face detector, Face
+   Mesh V2 landmark detector, Blendshape V2 model, and face geometry metadata.
+   Model-specific official cards identify Apache-2.0. The geometry source
+   carries Copyright 2023 The MediaPipe Authors and an Apache-2.0 header;
+   its serialization was checked against the bundled metadata byte-for-byte.
+   Its original source/header is retained in:
+     licenses/models/geometry_pipeline_metadata_landmarks.pbtxt
+   Provenance: pose_probe_assets/face_landmarker.source.json
+
+b. MediaPipe Pose Landmarker Lite, float16/1
+   File: pose_probe_assets/pose_landmarker_lite.task
+   Publisher: Google / The MediaPipe Authors
+   Source:
+   https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task
+   Documentation:
+   https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker
+   The official Lite bundle documentation links the BlazePose GHUM 3D model
+   card identifying Apache-2.0. That bundle-level documentation covers the
+   included pose detector and landmark model; an individual embedded detector
+   license field is absent. This evidence scope is recorded in the inventory.
+   Provenance: pose_probe_assets/pose_landmarker_lite.source.json
+
+c. MoveNet SinglePose Lightning INT8, TFHub int8/4
+   File: pose_probe_assets/movenet_lightning_int8_v4.tflite
+   Publisher: Google
+   Source:
+   https://tfhub.dev/google/lite-model/movenet/singlepose/lightning/tflite/int8/4?lite-format=tflite
+   Exact official variant:
+   https://www.kaggle.com/models/google/movenet/tfLite/singlepose-lightning-tflite-int8
+   The official variant page and MoveNet SinglePose model card identify
+   Apache-2.0. Provenance: pose_probe_assets/movenet_source.json
+
+4. RUNTIME DEPENDENCIES — INSTALLED SEPARATELY
+
+The .venv/ and .runtime/ directories are development-machine installations and
+are excluded from Git. The following original notices are retained for the
+principal dependencies. If shipping an installer or binary bundle instead of
+this source tree, include the notices accompanying all bundled dependencies.
+
+MediaPipe 1.0.1
+  https://github.com/google-ai-edge/mediapipe
+  Apache-2.0; licenses/mediapipe/LICENSE and licenses/mediapipe/NOTICE.
+
+OpenCV 5.0.0 / opencv-contrib-python 5.0.0.93
+  https://github.com/opencv/opencv
+  https://github.com/opencv/opencv-python
+  The OpenCV core is Apache-2.0: licenses/opencv/LICENSE.
+  The Python packaging license is MIT, Copyright (c) Olli-Pekka Heinisuo:
+    licenses/opencv-python/LICENSE.txt
+  Its original bundled-component notices are preserved in:
+    licenses/opencv-python/LICENSE-3RD-PARTY.txt
+  The contrib distribution satisfies MediaPipe's declared dependency. Install
+  only this OpenCV wheel; parallel headless/non-contrib wheels share the cv2
+  namespace and can overwrite each other's files. The retained third-party
+  notice contains the wheel's component-specific terms, including its GUI
+  and multimedia components; it does not apply one license to all components.
+
+LiteRT (ai-edge-litert) 2.2.0
+  https://github.com/google-ai-edge/LiteRT
+  Apache-2.0 according to the installed distribution and upstream license.
+  Upstream text retained at licenses/litert/LICENSE; its source URL and hash
+  are recorded in licenses/license_file_sources.json.
+
+NumPy 2.4.6
+  https://github.com/numpy/numpy
+  Core BSD-3-Clause; bundled material has additional notices/licenses.
+  The installed distribution's full license directory is retained at
+  licenses/numpy/, including its LICENSE.txt and component-specific texts.
+
+Tcl 8.6.16 and Tk 8.6.16
+  https://www.tcl-lang.org/
+  Original copyright, permission, and disclaimer terms from the installed
+  Arch Linux 8.6.16-1 packages are retained without alteration at:
+    licenses/tcl/license.terms
+    licenses/tk/license.terms
+
+License-text provenance and SHA-256 values:
+  licenses/license_file_sources.json
+
+Names and trademarks identify their upstream projects and do not imply
+endorsement of meganan.
+
+
+MediaPipe C API headers used by the C++ engine
+-------------------------------------------
+  Files: native/third_party/mediapipe/mediapipe/tasks/c/**/*.h
+  Copyright 2023 and 2025 The MediaPipe Authors (individual notices retained).
+  License: Apache-2.0. Original license and NOTICE remain available at:
+    licenses/mediapipe/LICENSE
+    licenses/mediapipe/NOTICE
+  Source: https://github.com/google-ai-edge/mediapipe
+  Pinned revision: 0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716
+  Thirteen official C API headers were copied without modification. Their
+  exact upstream URLs and SHA-256 values are recorded in:
+    native/third_party/mediapipe/SOURCE.json
+  meganan's native/inference.cpp is a separate integration layer using
+  these declarations. ABI sizes and field offsets are checked against the
+  installed MediaPipe 1.0.1 SDK by test_motion_native_inference.py.
+
+
+C++ engine build and camera dependencies
+---------------------------------------
+  pybind11 3.0.2 is used to build the Python/C++ extension.
+  Copyright (c) 2016 Wenzel Jakob; BSD-3-Clause.
+  Source: https://github.com/pybind/pybind11/tree/v3.0.2
+  Full license retained at licenses/pybind11/LICENSE.
+
+  The native camera dynamically links the system libjpeg API from
+  libjpeg-turbo 3.1.4.1. This software is based in part on the work of the
+  Independent JPEG Group. Unmodified system-package license documents:
+    licenses/libjpeg-turbo/LICENSE.md
+    licenses/libjpeg-turbo/README.ijg
+  Source: https://github.com/libjpeg-turbo/libjpeg-turbo
+  Individual IJG/BSD copyright notices and terms are retained in those files.
+
+LiteRT C headers and MoveNet resize adaptation
+---------------------------------------------
+  native/third_party/litert/ contains the official Apache-2.0 LiteRT v2.2.0
+  C headers, pinned to revision 145c7523ff08d5e57ab5c582141775eea47da9c7.
+  Copyright Google LLC, with original per-file notices retained.
+  The CPU-only build configuration is copied to its generated include location;
+  see native/third_party/litert/SOURCE.json for exact sources and hashes.
+  License text: licenses/litert/LICENSE and licenses/Apache-2.0.txt.
+
+  native/resize.hpp adapts the scalar fixed-point uint8 resize arithmetic from
+  OpenCV 5.0.0 modules/imgproc/src/resize.cpp for MoveNet RGB/BGR letterboxing.
+  Source: https://github.com/opencv/opencv/blob/5.0.0/modules/imgproc/src/resize.cpp
+  That source's original Intel/Willow Garage/Itseez BSD license and copyright
+  notice are retained in full at the top of native/resize.hpp, together with
+  the date and description of meganan's adaptation.

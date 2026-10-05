@@ -1,0 +1,13 @@
+{
+  "name": "MediaPipe Pose Landmarker Lite",
+  "version": "float16/1",
+  "source_url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+  "file": "pose_landmarker_lite.task",
+  "size_bytes": 5777746,
+  "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+  "documentation": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker",
+  "downloaded_utc": "2026-10-05T11:47:44.318908+00:00",
+  "license_spdx": "Apache-2.0",
+  "license_text": "licenses/Apache-2.0.txt",
+  "license_evidence": "licenses/model_license_evidence.json"
+}

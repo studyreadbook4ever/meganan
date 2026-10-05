@@ -1,0 +1,160 @@
+{
+  "recorded_on": "2026-10-05",
+  "files": [
+    {
+      "file": "licenses/mediapipe/LICENSE",
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8",
+      "source": "Installed mediapipe 1.0.1 wheel: licenses/LICENSE"
+    },
+    {
+      "file": "licenses/mediapipe/NOTICE",
+      "sha256": "e8e3eddc5c36d7413635455933650d7423b937185180e393f9a006bee60162e7",
+      "source": "Installed mediapipe 1.0.1 wheel: licenses/NOTICE"
+    },
+    {
+      "file": "licenses/opencv-python/LICENSE.txt",
+      "sha256": "09d719058e782ac7bc71ba21c944e1136cde2bb957c0e888121f0218d6b5f02c",
+      "source": "Installed opencv-contrib-python 5.0.0.93 PyPI Linux x86_64 wheel: LICENSE.txt"
+    },
+    {
+      "file": "licenses/opencv-python/LICENSE-3RD-PARTY.txt",
+      "sha256": "2537f5653345db7231ff12f307bcfa4c89807d45ed1c4bb8ebfb6f26f61b160a",
+      "source": "Installed opencv-contrib-python 5.0.0.93 PyPI Linux x86_64 wheel: LICENSE-3RD-PARTY.txt"
+    },
+    {
+      "file": "licenses/numpy/LICENSE.txt",
+      "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/LICENSE.txt"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/ma/LICENSE"
+    },
+    {
+      "file": "licenses/numpy/numpy/linalg/lapack_lite/LICENSE.txt",
+      "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/linalg/lapack_lite/LICENSE.txt"
+    },
+    {
+      "file": "licenses/numpy/numpy/fft/pocketfft/LICENSE.md",
+      "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/fft/pocketfft/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/src/philox/LICENSE.md",
+      "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/src/philox/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/src/sfc64/LICENSE.md",
+      "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/src/sfc64/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/src/distributions/LICENSE.md",
+      "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/src/distributions/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/src/mt19937/LICENSE.md",
+      "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/src/mt19937/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/src/pcg64/LICENSE.md",
+      "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/src/pcg64/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/random/src/splitmix64/LICENSE.md",
+      "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/random/src/splitmix64/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt"
+    },
+    {
+      "file": "licenses/numpy/numpy/_core/src/highway/LICENSE",
+      "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/_core/src/highway/LICENSE"
+    },
+    {
+      "file": "licenses/numpy/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md"
+    },
+    {
+      "file": "licenses/numpy/numpy/_core/src/umath/svml/LICENSE",
+      "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/_core/src/umath/svml/LICENSE"
+    },
+    {
+      "file": "licenses/numpy/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/_core/src/common/pythoncapi-compat/COPYING"
+    },
+    {
+      "file": "licenses/numpy/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "Installed numpy 2.4.6 PyPI Linux x86_64 wheel: licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt"
+    },
+    {
+      "file": "licenses/tcl/license.terms",
+      "sha256": "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16",
+      "source": "Arch Linux tcl 8.6.16-1 package: usr/share/licenses/tcl/license.terms"
+    },
+    {
+      "file": "licenses/tk/license.terms",
+      "sha256": "2cde822b93ca16ae535c954b7dfe658b4ad10df2a193628d1b358f1765e8b198",
+      "source": "Arch Linux tk 8.6.16-1 package: usr/share/licenses/tk/license.terms"
+    },
+    {
+      "file": "licenses/Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+    },
+    {
+      "file": "licenses/litert/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/LiteRT/main/LICENSE"
+    },
+    {
+      "file": "licenses/opencv/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "https://raw.githubusercontent.com/opencv/opencv/5.0.0/LICENSE"
+    },
+    {
+      "file": "licenses/opencv-zoo/person_detection_README.txt",
+      "sha256": "1b27e4158edf5cb4ae68f08f74a69b5f33965e342d5cbdf379ac1de2d0db9bb1",
+      "source": "https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/person_detection_mediapipe/README.md"
+    },
+    {
+      "file": "licenses/opencv-zoo/pose_estimation_README.txt",
+      "sha256": "56123a602853755310fa3dbf4d29520eedd9c7885bd5818b50a032e3e8e2a97b",
+      "source": "https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/pose_estimation_mediapipe/README.md"
+    },
+    {
+      "file": "licenses/libjpeg-turbo/LICENSE.md",
+      "source": "Installed libjpeg-turbo 3.1.4.1: /usr/share/licenses/libjpeg-turbo/LICENSE.md",
+      "sha256": "e10114e6e40f3d0311c401ca25245ac5ef459a43c20f976fd63f03e816f5741f"
+    },
+    {
+      "file": "licenses/libjpeg-turbo/README.ijg",
+      "source": "Installed libjpeg-turbo 3.1.4.1: /usr/share/licenses/libjpeg-turbo/README.ijg",
+      "sha256": "75815e3bf6484201a3c3d17a1bbf10f2e8e3237f84df10a2357ea896db2a81d6"
+    },
+    {
+      "file": "licenses/pybind11/LICENSE",
+      "source": "Installed pybind11 3.0.2 wheel: licenses/LICENSE",
+      "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb"
+    }
+  ]
+}

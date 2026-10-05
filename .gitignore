@@ -1,0 +1,19 @@
+# Local interpreters, installed dependencies, and platform runtime bundles.
+.venv
+.runtime
+__pycache__/
+*.py[cod]
+build/
+_motion_native*.so
+
+# Local motion measurements, GUI captures, and generated diagnostic outputs.
+runs/
+artifacts/
+*_probe_results.json
+live_api_check.json
+
+# Local reference-document snapshots; retain public URLs/evidence in JSON.
+licenses/models/*.pdf
+
+# Model binaries and their adjacent upstream licenses/provenance are retained.
+# Keep THIRD_PARTY_NOTICES.txt and licenses/ in any source distribution.

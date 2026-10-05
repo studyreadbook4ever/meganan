@@ -1,0 +1,148 @@
+meganan: local movement API
+==============================
+
+The running tracker serves read-only JSON on http://127.0.0.1:8765.
+Only numerical body/face coordinates and movement results are available.
+The payload schema_version is "1.1"; existing /api/v1 routes are unchanged.
+No endpoint serves camera frames or saves them. All processing remains local.
+The default bind address is loopback; other computers cannot connect.
+An explicit field allowlist drops image/frame/jpeg/base64 and other unknown
+fields before serialization. All 17 point triples require finite numerical
+coordinates, with confidence in [0,1]. Malformed states do not replace the
+last valid published state. Face center/motion objects also have explicit
+nested field allowlists; face landmarks are restricted to numerical triples.
+
+Current motion:
+  curl -s http://127.0.0.1:8765/api/v1/state
+
+Live Server-Sent Events:
+  curl -N http://127.0.0.1:8765/api/v1/events
+
+API liveness:
+  curl -s http://127.0.0.1:8765/health
+
+Machine-readable OpenAPI 3.1 contract:
+  curl -s http://127.0.0.1:8765/openapi.json
+
+GUI geometry and rendering conventions:
+  curl -s http://127.0.0.1:8765/api/v1/metadata
+
+Each pose event contains:
+  event: pose
+  id: a monotonically increasing sequence number
+  data: a JSON state object
+
+points is always ordered as keypoint_names (COCO17). Each entry has
+[x, y, confidence]. x and y use normalized, unmirrored camera image
+coordinates. A mirrored GUI changes only its display. Confidence 0 means
+unavailable. Low-confidence joints must not be used as reliable measurements.
+Angles are degrees; null means unavailable. frame_age_ms is measured when
+the state is published, and /health state_age_ms tells how old that state is
+now. Read tracked, body_tracked, face_tracked, person_present, tracking_level,
+and status to distinguish body tracking, face-only tracking, partial
+visibility, missing people, camera errors, or startup. Since schema 1.1,
+tracked means a reliable BODY OR FACE is tracked. Clients needing the earlier
+body reliability criterion should read body_tracked. Face-only observation
+can yield tracked=true, body_tracked=false, face_tracked=true,
+tracking_level=FACE, and status=FACE_TRACKING. Body arm/angle decisions remain
+unavailable while body_tracked is false.
+
+tracked=false does not mean no person is present: person_present can be true
+and tracking_level=PARTIAL while visible joints remain usable. tracking_level
+is FULL, UPPER_BODY, PARTIAL, FACE, or NONE. Always inspect individual point
+confidence before using a joint. A healthy API is not proof of a working
+camera.
+
+Face movement fields:
+  face_center: {x, y, confidence} or null. x/y are normalized, unmirrored image
+               coordinates. confidence is null if the model provides no
+               score; no score is invented for mesh landmarks.
+  face_motion: {dx, dy, speed, unit} or null. dx/dy are signed VELOCITY
+               components and speed is their magnitude. The unit is
+               "image_fraction_per_second", not physical meters per second.
+  face_landmarks: [] when no mesh is available; otherwise 468 or 478 [x,y,z]
+                  numerical triples in native MediaPipe face landmark index
+                  order. x/y are normalized image coordinates; z is relative
+                  model depth, NOT confidence or absolute physical depth.
+                  Coordinates may extend outside the visible [0,1] image.
+                  The existing 17 body points remain [x,y,confidence].
+  face_bbox: [xmin, ymin, xmax, ymax] in normalized image coordinates, or null.
+  face_mode: "mesh" for dedicated face landmarks, "pose" for a coarse face
+             estimate from the body's facial points, or "none".
+
+Mesh points can describe facial movement and contours without transmitting
+the face image. They are not an identity recognition result. Static mesh
+connections are served once through /api/v1/metadata instead of repeated in
+every frame. It contains the same 16 body edges and 157 facial contour/iris/
+nose edges used by the GUI, plus keypoint_names and coordinate conventions.
+
+To reproduce the GUI movement in another program:
+  1. Read /api/v1/metadata, then consume /api/v1/events or /api/v1/state.
+  2. Coordinates are normalized, x increases right, y increases down. The
+     GUI is mirrored: x_view = 1 - x, y_view = y; scale to your viewport.
+  3. A body point is visible when confidence > 0.3 and x/y are in [0,1],
+     person_present is true, and tracking_level is not NONE. This permits
+     partial body display even when body_tracked is false. Facial mesh points
+     require face_tracked=true and x/y in [0,1]; face z is not confidence.
+     When at least one mesh point is visible, hide COCO face points 0..4
+     (nose/eyes/ears); the detailed mesh replaces these coarse markers.
+  4. Draw each metadata edge as its own segment only when both endpoints are
+     visible. Skip a facial edge if either index exceeds the landmark count
+     (for example, iris indices with a 468-point mesh).
+  5. Use face_center, face_bbox, face_motion, body angles/arm states, and
+     recent_events for the remaining movement indicators and event labels.
+
+Face/body positions and movement values shown by the GUI are in the state;
+the API transmits numerical geometry and shared topology, never screen pixels.
+
+fps_limit is the current configured tracking cap (1..30, default 20); actual
+fps can be lower. The GUI can change the cap locally. This read-only API
+exposes the value but has no control endpoint to change it.
+
+SSE is a latest-state frame stream: a slow reader can skip frames, including
+one-shot action notifications carried in a skipped frame's events array.
+The events field is best-effort; there is no durable event delivery or event
+log. recent_events retains the last three action events in memory, oldest to
+newest, as {event,timestamp_unix_s,sequence}. Empty events frames preserve this
+history, so clients can reproduce the GUI's recent event labels even after
+the original event frame passed. Entries disappear only when replaced by
+newer events or when the application restarts; this is a bounded window, not
+a complete history. The server assigns entries and ignores caller-supplied
+recent_events. Use the current pose and movement fields for ongoing state. Last-Event-ID
+is supported for waiting for a newer state, without historical replay.
+Sequence restarts at 0 when the application restarts: reconnect without
+Last-Event-ID after restart.
+
+Python example (no additional packages):
+
+  import json
+  import urllib.request
+
+  with urllib.request.urlopen(
+      "http://127.0.0.1:8765/api/v1/events", timeout=30
+  ) as stream:
+      for line in stream:
+          if line.startswith(b"data: "):
+              state = json.loads(line[6:])
+              print(state["sequence"], state["body_tracked"],
+                    state["face_tracked"], state["face_center"])
+
+For polling, use json.load(urllib.request.urlopen(
+    "http://127.0.0.1:8765/api/v1/state", timeout=2))
+
+The server sends no CORS permission. Native applications and local Python
+clients can connect directly; a browser frontend should use a same-origin
+backend proxy. No authentication is configured, so keep the loopback default.
+No API method starts capture, mutates settings, or executes commands.
+
+Module embedding:
+  from motion_api import StateStore, MotionAPIServer
+  store = StateStore()
+  api = MotionAPIServer(store).start()
+  store.publish({"tracked": False, "status": "waiting_for_person"})
+  # Publish subsequent state dictionaries from the capture worker.
+  api.close()
+  store.close()
+
+API tests, without a camera:
+  python3 -m unittest -v test_motion_api.py

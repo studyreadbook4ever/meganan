@@ -1,0 +1,35 @@
+{
+  "commit": "47534e27c9851bb1128ccc0102f1145e27f23f98",
+  "files": [
+    {
+      "path": "pose_probe_assets/person_detection_mediapipe/mp_persondet.py",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/person_detection_mediapipe/mp_persondet.py",
+      "sha256": "e530a8ebc3c218376d5dd1c13aa8ed39a850fac4dbcd6928144746b33477b9c7"
+    },
+    {
+      "path": "pose_probe_assets/person_detection_mediapipe/LICENSE",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/person_detection_mediapipe/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "pose_probe_assets/person_detection_mediapipe/person_detection_mediapipe_2023mar.onnx",
+      "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/person_detection_mediapipe/person_detection_mediapipe_2023mar.onnx",
+      "sha256": "47fd5599d6fa17608f03e0eb0ae230baa6e597d7e8a2c8199fe00abea55a701f"
+    },
+    {
+      "path": "pose_probe_assets/pose_estimation_mediapipe/mp_pose.py",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/pose_estimation_mediapipe/mp_pose.py",
+      "sha256": "7e1953d1fb848c64fd3b44277e615e273e7fb2f325f7633eb9c1e32948d45e67"
+    },
+    {
+      "path": "pose_probe_assets/pose_estimation_mediapipe/LICENSE",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/pose_estimation_mediapipe/LICENSE",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "pose_probe_assets/pose_estimation_mediapipe/pose_estimation_mediapipe_2023mar.onnx",
+      "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/pose_estimation_mediapipe/pose_estimation_mediapipe_2023mar.onnx",
+      "sha256": "9d89c599319a18fb7d2e28451a883476164543182bafca5f09eb2cf767ed2f3f"
+    }
+  ]
+}

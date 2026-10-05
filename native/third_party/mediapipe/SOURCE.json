@@ -1,0 +1,75 @@
+{
+  "repository": "https://github.com/google-ai-edge/mediapipe",
+  "commit": "0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716",
+  "license": "Apache-2.0",
+  "license_file": "licenses/mediapipe/LICENSE",
+  "notice_file": "licenses/mediapipe/NOTICE",
+  "modifications": "None; selected official C API headers copied without modification. Struct ABI checked against installed MediaPipe 1.0.1 ctypes declarations in test_motion_native_inference.py.",
+  "files": [
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/vision/face_landmarker/face_landmarker.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/vision/face_landmarker/face_landmarker.h",
+      "sha256": "42cbb330e9d51066476a30e6a00bb078f69d9989cc46d89424e0e9f738c8c90b"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/vision/face_landmarker/face_landmarker_result.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/vision/face_landmarker/face_landmarker_result.h",
+      "sha256": "7479dcdf871bbf35741dbe846ae4862df90d8b7f8715b1053cc45c151885798f"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/components/containers/matrix.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/components/containers/matrix.h",
+      "sha256": "d1c3dbf40a54cd977a4210b131b0cc313dcb348ca61a1e8d5b864c3e24c5d8d9"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/components/containers/landmark.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/components/containers/landmark.h",
+      "sha256": "54c7da6a199c207b90c4fde0f5d3523b439cb270ab7dfa3b566effe76909ccf6"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/components/containers/category.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/components/containers/category.h",
+      "sha256": "ac8ebb4230fda8ab19588290984a2554e3d23968512c7354655555a1071a1508"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/vision/core/image.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/vision/core/image.h",
+      "sha256": "ee9740678186c949e940a2e35332e64856fdc6e23078dbc807e848cc85ca3285"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/core/mp_status.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/core/mp_status.h",
+      "sha256": "50088265cd4900239491c36f4bd5e9b1e3f244ca8fbdd1232c3f1ff28140e042"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/core/common.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/core/common.h",
+      "sha256": "da8c204e16db43ac0c09a7d195402703589f9c3f93ccea2d75eca2c6236296bf"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/core/base_options.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/core/base_options.h",
+      "sha256": "8477e4eed8139c211df2bfaa0f9ce10a299ac9bdcb8344435eb45aa0d7afb4d0"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/vision/pose_landmarker/pose_landmarker.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/vision/pose_landmarker/pose_landmarker.h",
+      "sha256": "73203e190e9390fe87992eecbdd64813e0a2325bb9f32862e90678f0581b1d68"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/vision/pose_landmarker/pose_landmarker_result.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/vision/pose_landmarker/pose_landmarker_result.h",
+      "sha256": "9a17bb28076dd2d89d6026dcc22b0e877868c9e9c2902ca25b97e02e4d83b84f"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/vision/core/image_processing_options.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/vision/core/image_processing_options.h",
+      "sha256": "a5e3b8d34c9856ee9d12d912b9ee858e59da0e5c0b32ae8012180b5ce517f80e"
+    },
+    {
+      "path": "native/third_party/mediapipe/mediapipe/tasks/c/components/containers/rect.h",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/0e9cdac7342775f9d6bb5f36276d4c0b1c5cb716/mediapipe/tasks/c/components/containers/rect.h",
+      "sha256": "762b5452c72bad949ccfb62fc31007e31e70d7740e800784cd09fd8e1419bb49"
+    }
+  ]
+}

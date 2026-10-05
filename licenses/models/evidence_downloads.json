@@ -1,0 +1,50 @@
+[
+  {
+    "file": "licenses/models/blazeface_short_range_model_card.pdf",
+    "source_url": "https://storage.googleapis.com/mediapipe-assets/MediaPipe%20BlazeFace%20Model%20Card%20(Short%20Range).pdf",
+    "sha256": "cd335c06fc0de7807cd815a0777a697932598bcdb28fa98adaaabf847485f758",
+    "bytes": 434425
+  },
+  {
+    "file": "licenses/models/face_mesh_v2_model_card.pdf",
+    "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf",
+    "sha256": "c6add060f4ebfb37b2690136b6c711c7e5fcb7038baa2649ae3338b83979565a",
+    "bytes": 3476420
+  },
+  {
+    "file": "licenses/models/blendshape_v2_model_card.pdf",
+    "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf",
+    "sha256": "c8e9cf60a39998f4b341740623917590e050d1c97004e2de4568d84e026445ae",
+    "bytes": 2324099
+  },
+  {
+    "file": "licenses/models/blazepose_ghum_3d_model_card.pdf",
+    "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+    "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+    "bytes": 1398977
+  },
+  {
+    "file": "licenses/models/movenet_singlepose_model_card.pdf",
+    "source_url": "https://storage.googleapis.com/movenet/MoveNet.SinglePose%20Model%20Card.pdf",
+    "sha256": "d3a00360716d751e114c91a1b3869d900b02572c0048a3ea419b85790842199e",
+    "bytes": 98241
+  },
+  {
+    "file": "licenses/models/geometry_pipeline_metadata_landmarks.pbtxt",
+    "source_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/mediapipe/tasks/cc/vision/face_geometry/data/geometry_pipeline_metadata_landmarks.pbtxt",
+    "sha256": "d6a917a8aa2065ab1ab99f2b1375985e3ab1c9350e64362323dddd588a86cda5",
+    "bytes": 117675
+  },
+  {
+    "file": "licenses/models/geometry_pipeline_metadata.BUILD",
+    "source_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/mediapipe/tasks/cc/vision/face_geometry/data/BUILD",
+    "sha256": "bc2ab301baa2f8ba39cf3f696c36a0f9466fc34aade82c7558035da1b84f11dc",
+    "bytes": 2328
+  },
+  {
+    "file": "licenses/models/MEDIAPIPE-LICENSE.txt",
+    "source_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/LICENSE",
+    "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8",
+    "bytes": 12331
+  }
+]

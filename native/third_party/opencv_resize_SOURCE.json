@@ -1,0 +1,7 @@
+{
+  "upstream_url": "https://raw.githubusercontent.com/opencv/opencv/5.0.0/modules/imgproc/src/resize.cpp",
+  "upstream_sha256": "e4610736015ab8e7395bde854a60337d1281b972566bb4806db04f1868f6e36c",
+  "adapted_file": "native/resize.hpp",
+  "modifications": "Restricted to RGB/BGR uint8 bilinear scaling with 192x192 MoveNet letterboxing; original BSD license retained in file header.",
+  "version": "5.0.0"
+}

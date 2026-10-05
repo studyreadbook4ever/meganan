@@ -1,0 +1,10 @@
+{
+  "url": "https://tfhub.dev/google/lite-model/movenet/singlepose/lightning/tflite/int8/4?lite-format=tflite",
+  "resolved_url": "https://storage.googleapis.com/kagglesdsdata/models/1037/1207/4.tflite",
+  "sha256": "cd7cc22fa946e5d146a7b98d496853e1923e22828d3972d579973f27f91bb105",
+  "bytes": 2894840,
+  "license_spdx": "Apache-2.0",
+  "license_text": "licenses/Apache-2.0.txt",
+  "license_evidence": "licenses/model_license_evidence.json",
+  "resolved_url_note": "Temporary download-signature query omitted; use the stable TFHub url field to download."
+}

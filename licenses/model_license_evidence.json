@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-05T12:21:59.134708+00:00",
+  "scope": "The three existing Google model artifacts below and every file inside their .task bundles. This inventory does not relicense project-owned code, training datasets, or unrelated models.",
+  "license_text_file": "licenses/models/MEDIAPIPE-LICENSE.txt",
+  "download_manifest": "licenses/models/evidence_downloads.json",
+  "models": [
+    {
+      "name": "MediaPipe Face Landmarker",
+      "version": "float16/1",
+      "file": "pose_probe_assets/face_landmarker.task",
+      "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "size_bytes": 3758596,
+      "sha256_matches_existing_source_manifest": true,
+      "source_manifest": "pose_probe_assets/face_landmarker.source.json",
+      "download_url": "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+      "license_spdx": "Apache-2.0",
+      "publisher": "Google / MediaPipe authors",
+      "official_model_documentation": "https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker",
+      "components": [
+        {
+          "file": "face_detector.tflite",
+          "sha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+          "size_bytes": 229746,
+          "license_spdx": "Apache-2.0",
+          "embedded_model_metadata": [
+            {
+              "Name": "Short Range Face Detection",
+              "Description": "Detects human face with frontal camera",
+              "Version": "1",
+              "Author": "MediaPipe",
+              "License": null
+            }
+          ],
+          "embedded_license_present": false,
+          "evidence": [
+            {
+              "file": "licenses/models/blazeface_short_range_model_card.pdf",
+              "source_url": "https://storage.googleapis.com/mediapipe-assets/MediaPipe%20BlazeFace%20Model%20Card%20(Short%20Range).pdf",
+              "sha256": "cd335c06fc0de7807cd815a0777a697932598bcdb28fa98adaaabf847485f758",
+              "bytes": 434425,
+              "relevant_pages": [
+                1
+              ],
+              "supports": "Official Face Landmarker guide identifies its detector as BlazeFace short-range; the linked model card states Apache License, Version 2.0."
+            }
+          ]
+        },
+        {
+          "file": "face_landmarks_detector.tflite",
+          "sha256": "c7d54204ce0448474c7f3fa9af494787c0965cbdd6f20fc72867e43046bd43d5",
+          "size_bytes": 2553590,
+          "license_spdx": "Apache-2.0",
+          "embedded_model_metadata": [
+            {
+              "Name": "Face mesh detection model v2",
+              "Description": "Detects 478 face landmarks",
+              "Version": "1",
+              "Author": "MediaPipe",
+              "License": null
+            }
+          ],
+          "embedded_license_present": false,
+          "evidence": [
+            {
+              "file": "licenses/models/face_mesh_v2_model_card.pdf",
+              "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf",
+              "sha256": "c6add060f4ebfb37b2690136b6c711c7e5fcb7038baa2649ae3338b83979565a",
+              "bytes": 3476420,
+              "relevant_pages": [
+                1
+              ],
+              "supports": "Official Face Landmarker guide maps the bundle to Face Mesh V2; card states Apache License, Version 2.0."
+            }
+          ]
+        },
+        {
+          "file": "geometry_pipeline_metadata_landmarks.binarypb",
+          "sha256": "bdbcda96dfcb7da883da124aaa2c55dee49770d934f0fcc71747f8c21bdc75b4",
+          "size_bytes": 19376,
+          "license_spdx": "Apache-2.0",
+          "evidence": [
+            {
+              "file": "licenses/models/geometry_pipeline_metadata_landmarks.pbtxt",
+              "source_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/mediapipe/tasks/cc/vision/face_geometry/data/geometry_pipeline_metadata_landmarks.pbtxt",
+              "sha256": "d6a917a8aa2065ab1ab99f2b1375985e3ab1c9350e64362323dddd588a86cda5",
+              "bytes": 117675,
+              "supports": "Apache-2.0 header and Copyright 2023 The MediaPipe Authors. Encoding all values using the upstream protobuf field numbers produces bytes identical to the bundled binarypb."
+            }
+          ],
+          "upstream_source_verification": {
+            "method": "Parsed upstream pbtxt floats/indices/weighted landmarks; serialized protobuf fields per the upstream GeometryPipelineMetadata and Mesh3d definitions; compared full byte strings.",
+            "byte_for_byte_equal": true,
+            "generated_sha256": "bdbcda96dfcb7da883da124aaa2c55dee49770d934f0fcc71747f8c21bdc75b4",
+            "vertex_values": 2340,
+            "indices": 2694,
+            "weighted_landmarks": 33,
+            "schema_urls": [
+              "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/mediapipe/tasks/cc/vision/face_geometry/proto/geometry_pipeline_metadata.proto",
+              "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/mediapipe/tasks/cc/vision/face_geometry/proto/mesh_3d.proto"
+            ]
+          }
+        },
+        {
+          "file": "face_blendshapes.tflite",
+          "sha256": "4f36dded049db18d76048567439b2a7f58f1daabc00d78bfe8f3ad396a2d2082",
+          "size_bytes": 955312,
+          "license_spdx": "Apache-2.0",
+          "embedded_model_metadata": [],
+          "embedded_license_present": false,
+          "evidence": [
+            {
+              "file": "licenses/models/blendshape_v2_model_card.pdf",
+              "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf",
+              "sha256": "c8e9cf60a39998f4b341740623917590e050d1c97004e2de4568d84e026445ae",
+              "bytes": 2324099,
+              "relevant_pages": [
+                1
+              ],
+              "supports": "Official Face Landmarker guide maps the bundle to Blendshape V2; card states Apache License, Version 2.0."
+            }
+          ]
+        }
+      ],
+      "verification_notes": [
+        "License attribution relies on the official model-specific cards and variant pages, not the MediaPipe SDK license or Google documentation footer.",
+        "The inspected TFLite metadata does not supply a populated License field; the external first-party evidence above supplies the licensing basis.",
+        "Model cards are family/variant-level licensing evidence, not publisher-signed per-file license attestations. Local model hashes have been checked against existing download records."
+      ],
+      "upstream_object_verification": {
+        "source_url": "https://storage.googleapis.com/storage/v1/b/mediapipe-models/o/face_landmarker%2Fface_landmarker%2Ffloat16%2F1%2Fface_landmarker.task",
+        "generation": "1683136941916318",
+        "md5_base64": "sOcnSQehZEQE/vZrKN1thQ==",
+        "size_bytes": 3758596,
+        "local_bytes_match_upstream_object_md5": true
+      }
+    },
+    {
+      "name": "MediaPipe Pose Landmarker Lite",
+      "version": "float16/1",
+      "file": "pose_probe_assets/pose_landmarker_lite.task",
+      "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+      "size_bytes": 5777746,
+      "sha256_matches_existing_source_manifest": true,
+      "source_manifest": "pose_probe_assets/pose_landmarker_lite.source.json",
+      "download_url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+      "license_spdx": "Apache-2.0",
+      "publisher": "Google / MediaPipe authors",
+      "official_model_documentation": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker",
+      "components": [
+        {
+          "file": "pose_detector.tflite",
+          "sha256": "46837eb883e6ec75b52c5f5ff6a9b78bd35e66c13f95e8c3566c582d146cb1d9",
+          "size_bytes": 2959078,
+          "license_spdx": "Apache-2.0",
+          "embedded_model_metadata": [
+            {
+              "Name": "Full Range Face Detection",
+              "Description": "Detects human face with frontal camera",
+              "Version": "1",
+              "Author": "MediaPipe",
+              "License": null
+            }
+          ],
+          "embedded_license_present": false,
+          "evidence": [
+            {
+              "file": "licenses/models/blazepose_ghum_3d_model_card.pdf",
+              "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+              "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+              "bytes": 1398977,
+              "relevant_pages": [
+                1,
+                2
+              ],
+              "supports": "The official Pose Landmarker guide links this card for the Lite bundle, which it describes as detector plus landmark model; card explicitly states Apache License, Version 2.0."
+            }
+          ],
+          "verification_note": "No independent detector-specific license field is embedded. Apache-2.0 attribution follows the official bundle-to-model-card mapping. The embedded Name/Description mention face detection despite this file being the pose detector; they are retained here as observed and are not used to establish model identity."
+        },
+        {
+          "file": "pose_landmarks_detector.tflite",
+          "sha256": "ad6cfd3c903eb31a4ee788b809e45ecf9fa69923b69b9f3f2d9ae616ff433e58",
+          "size_bytes": 2818390,
+          "license_spdx": "Apache-2.0",
+          "embedded_model_metadata": [
+            {
+              "Name": "Pose Landmark",
+              "Description": "Detects human pose landmarks with frontal camera.",
+              "Version": "1",
+              "Author": "MediaPipe",
+              "License": null
+            }
+          ],
+          "embedded_license_present": false,
+          "evidence": [
+            {
+              "file": "licenses/models/blazepose_ghum_3d_model_card.pdf",
+              "source_url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+              "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+              "bytes": 1398977,
+              "relevant_pages": [
+                1,
+                2
+              ],
+              "supports": "The official Pose Landmarker guide links this card for the Lite bundle, which it describes as detector plus landmark model; card explicitly states Apache License, Version 2.0."
+            }
+          ]
+        }
+      ],
+      "verification_notes": [
+        "License attribution relies on the official model-specific cards and variant pages, not the MediaPipe SDK license or Google documentation footer.",
+        "The inspected TFLite metadata does not supply a populated License field; the external first-party evidence above supplies the licensing basis.",
+        "Model cards are family/variant-level licensing evidence, not publisher-signed per-file license attestations. Local model hashes have been checked against existing download records."
+      ],
+      "upstream_object_verification": {
+        "source_url": "https://storage.googleapis.com/storage/v1/b/mediapipe-models/o/pose_landmarker%2Fpose_landmarker_lite%2Ffloat16%2F1%2Fpose_landmarker_lite.task",
+        "generation": "1682624736756847",
+        "md5_base64": "BKdd33yBGsehpFIyZt19iA==",
+        "size_bytes": 5777746,
+        "local_bytes_match_upstream_object_md5": true
+      }
+    },
+    {
+      "name": "MoveNet SinglePose Lightning INT8",
+      "version": "TFHub int8/4; Kaggle variation version 1",
+      "file": "pose_probe_assets/movenet_lightning_int8_v4.tflite",
+      "sha256": "cd7cc22fa946e5d146a7b98d496853e1923e22828d3972d579973f27f91bb105",
+      "size_bytes": 2894840,
+      "sha256_matches_existing_source_manifest": true,
+      "source_manifest": "pose_probe_assets/movenet_source.json",
+      "download_url": "https://tfhub.dev/google/lite-model/movenet/singlepose/lightning/tflite/int8/4?lite-format=tflite",
+      "license_spdx": "Apache-2.0",
+      "publisher": "Google / MediaPipe authors",
+      "official_model_documentation": "https://www.kaggle.com/models/google/movenet/tfLite/singlepose-lightning-tflite-int8",
+      "components": [
+        {
+          "file": "movenet_lightning_int8_v4.tflite",
+          "sha256": "cd7cc22fa946e5d146a7b98d496853e1923e22828d3972d579973f27f91bb105",
+          "size_bytes": 2894840,
+          "license_spdx": "Apache-2.0",
+          "embedded_model_metadata": [],
+          "embedded_license_present": false,
+          "evidence": [
+            {
+              "file": "licenses/models/movenet_singlepose_model_card.pdf",
+              "source_url": "https://storage.googleapis.com/movenet/MoveNet.SinglePose%20Model%20Card.pdf",
+              "sha256": "d3a00360716d751e114c91a1b3869d900b02572c0048a3ea419b85790842199e",
+              "bytes": 98241,
+              "relevant_pages": [
+                1
+              ],
+              "supports": "Official Google model card explicitly states Apache License, Version 2.0."
+            },
+            {
+              "source_url": "https://www.kaggle.com/models/google/movenet/tfLite/singlepose-lightning-tflite-int8",
+              "supports": "Google-published exact singlepose-lightning-tflite-int8 variation lists Apache 2.0 and identifies it as the int8 TF Lite form of MoveNet Lightning/4 (file 4.tflite).",
+              "observed_license_text": "Apache 2.0"
+            }
+          ]
+        }
+      ],
+      "verification_notes": [
+        "License attribution relies on the official model-specific cards and variant pages, not the MediaPipe SDK license or Google documentation footer.",
+        "The inspected TFLite metadata does not supply a populated License field; the external first-party evidence above supplies the licensing basis.",
+        "Model cards are family/variant-level licensing evidence, not publisher-signed per-file license attestations. Local model hashes have been checked against existing download records."
+      ]
+    }
+  ]
+}
